@@ -95,3 +95,9 @@ The current AES algorithm with Base64 encoding allows us to recover our PII by d
    * As SQS and Postgre were provided as a docker images - this application was also expected to be build, run and connect to these as docker container.
    * SQS and Postgres are always avaliable and the startup of this service depends on their availability.
 
+### Whats next:
+* I would like to handle message type on the entry point itself at `public void loadMessageFromSQS(String message)` where rather than `String message` I can directly read `UserLogin userlogin` object so that we can couple this queue with specific object data. For this I a custom serializer and its logic configuration would be required.
+* Better Serialization logic is also needed and custom exception message and logging for specific parsing error
+* Make a application.properties and docker environment files for specific deployment envinonments
+* A Rest Controller and specific endpoints to monitor the queue
+* Customizable configuration so that if needed we can listen to multiple queues.
